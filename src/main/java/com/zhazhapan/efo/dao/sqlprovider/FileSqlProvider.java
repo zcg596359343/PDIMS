@@ -8,10 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.jdbc.SQL;
 import org.springframework.stereotype.Component;
 
-/**
- * @author pantao
- * @since 2018/1/19
- */
+
 @Component
 public class FileSqlProvider {
 
@@ -61,21 +58,26 @@ public class FileSqlProvider {
 
     public String getAll(@Param("offset") int offset, @Param("categoryId") int categoryId, @Param("orderBy") String
             orderBy, @Param("search") String search) {
-        return getBaseSql(ValueConsts.FALSE) + " where f.is_visible=1" + (categoryId < 1 ? "" : "  and " +
+        String returnStr = getBaseSql(ValueConsts.FALSE) + " where f.is_visible=1" + (categoryId < 1 ? "" : "  and " +
                 "category_id=#{categoryId}") + " and ((select a.is_visible from auth a where a.file_id=f.id and a" +
-                ".user_id=#{userId}) is null or (a.user_id=#{userId} and a.is_visible=1))" + getSqlEnds(offset,
+                ".user_id=#{userId}) and (a.user_id=#{userId} and a.is_visible=1))" + getSqlEnds(offset,
                 orderBy, search);
+        return returnStr;
     }
 
     public String getUserUploaded(@Param("offset") int offset, @Param("search") String search) {
-        return getBaseSql(ValueConsts.FALSE) + " where f.is_visible=1 and (f.user_id=#{userId} or a.is_updatable=1 or" +
+        String str=getBaseSql(ValueConsts.FALSE) + " where f.is_visible=1 and (f.user_id=#{userId} and a.is_updatable=1 and" +
                 " a.is_deletable=1)" + getSqlEnds(offset,
                 ValueConsts.EMPTY_STRING, search);
+        return str;
     }
 
     public String getUserDownloaded(@Param("offset") int offset, @Param("search") String search) {
-        return getBaseSql(ValueConsts.TRUE) + " where d.user_id=#{userId}" + getSqlEnds(offset, ValueConsts
+        String re;
+        re=getBaseSql(ValueConsts.TRUE) + " where d.user_id=#{userId}" + getSqlEnds(offset, ValueConsts
                 .EMPTY_STRING, search);
+        System.out.println(re);
+        return re;
     }
 
     private String getSearch(String search) {

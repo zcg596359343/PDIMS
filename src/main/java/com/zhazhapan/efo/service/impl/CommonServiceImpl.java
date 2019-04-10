@@ -16,10 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * @author pantao
- * @since 2018/1/23
- */
+
 @Service
 public class CommonServiceImpl implements ICommonService {
 

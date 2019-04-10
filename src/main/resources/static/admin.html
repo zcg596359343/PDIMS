@@ -48,9 +48,6 @@
             <a href="filemanager" target="_blank"><span
                     class="glyphicon glyphicon-folder-close">&nbsp;<b>远程管理</b></span></a>
         </li>
-        <li class="jq-nav-item">
-            <a href="#system-setting"><span class="glyphicon glyphicon-cog">&nbsp;<b>系统设置</b></span></a>
-        </li>
     </ul>
 </div>
 <br/>
@@ -67,9 +64,8 @@
                     <th>编号</th>
                     <th>用户名</th>
                     <th>邮箱</th>
-                    <th>文件路径</th>
+
                     <th>分类名</th>
-                    <th>链接</th>
                     <th>上传时间</th>
                 </tr>
                 </thead>
@@ -78,11 +74,9 @@
                     <td>{{key+1}}</td>
                     <td>{{upload.username}}</td>
                     <td>{{upload.email}}</td>
-                    <td><a href="javascript:" onclick="alerts($(event.srcElement).attr('data-title'));"
-                           v-bind:title="upload.localUrl" data-toggle="tooltip"
-                           v-bind:data-title="upload.localUrl">查看</a></td>
+
                     <td>{{upload.categoryName}}</td>
-                    <td><a v-bind:href="upload.visitUrl" target="_blank">访问</a></td>
+
                     <td>{{new Date(upload.createTime).format('yyyy-MM-dd hh:mm:ss')}}</td>
                 </tr>
                 </tbody>
@@ -109,7 +103,7 @@
                     <th>邮箱</th>
                     <th>文件名</th>
                     <th>分类</th>
-                    <th>链接</th>
+
                     <th>下载时间</th>
                 </tr>
                 </thead>
@@ -122,7 +116,7 @@
                     <td>{{download.email}}</td>
                     <td>{{download.fileName}}</td>
                     <td>{{download.categoryName}}</td>
-                    <td><a v-bind:href="download.visitUrl" target="_blank">访问</a></td>
+
                     <td>{{new Date(download.createTime).format('yyyy-MM-dd hh:mm:ss')}}</td>
                 </tr>
                 </tbody>
@@ -170,9 +164,9 @@
                     <th>编号</th>
                     <th>文件编号</th>
                     <th>用户名</th>
-                    <th>本地路径</th>
+
                     <th>分类</th>
-                    <th>链接</th>
+
                     <th>下载次数</th>
                     <th>上传时间</th>
                 </tr>
@@ -190,11 +184,9 @@
                     <td class="file-index" v-bind:data-key="key">{{key+1}}</td>
                     <td>{{file.id}}</td>
                     <td>{{file.username}}</td>
-                    <td><a href="javascript:" onclick="alerts($(event.srcElement).attr('data-title'));"
-                           v-bind:title="file.localUrl" data-toggle="tooltip"
-                           v-bind:data-title="file.localUrl">查看</a></td>
+
                     <td>{{file.categoryName}}</td>
-                    <td><a v-bind:href="file.visitUrl" target="_blank">访问</a></td>
+
                     <td>{{file.downloadTimes}}</td>
                     <td>{{new Date(file.createTime).format('yyyy-MM-dd hh:mm:ss')}}</td>
                 </tr>
@@ -250,7 +242,7 @@
                     <th>编号</th>
                     <th>用户名</th>
                     <th>文件名</th>
-                    <th>本地路径</th>
+
                     <th>下载权限</th>
                     <th>删除权限</th>
                     <th>修改权限</th>
@@ -271,9 +263,7 @@
                     <td class="auth-index" v-bind:data-key="key">{{key+1}}</td>
                     <td>{{auth.username}}</td>
                     <td>{{auth.fileName}}</td>
-                    <td><a href="javascript:" onclick="alerts($(event.srcElement).attr('data-title'));"
-                           v-bind:title="auth.localUrl" data-toggle="tooltip"
-                           v-bind:data-title="auth.localUrl">查看</a></td>
+
                     <td class="text-center" v-html="getIconYesOrNo(auth.isDownloadable)"></td>
                     <td class="text-center" v-html="getIconYesOrNo(auth.isDeletable)"></td>
                     <td class="text-center" v-html="getIconYesOrNo(auth.isUpdatable)"></td>

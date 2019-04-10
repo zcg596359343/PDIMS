@@ -10,10 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.util.List;
 
-/**
- * @author pantao
- * @since 2018/1/29
- */
+
 public interface IFileService {
 
     /**

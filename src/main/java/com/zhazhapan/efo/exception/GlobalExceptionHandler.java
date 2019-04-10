@@ -12,10 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author pantao
- * @since 2018/2/5
- */
+
 public class GlobalExceptionHandler implements HandlerExceptionResolver {
 
     @Override

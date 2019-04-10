@@ -6,10 +6,7 @@ import com.zhazhapan.util.Checker;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.jdbc.SQL;
 
-/**
- * @author pantao
- * @since 2018/2/28
- */
+
 public class UploadedSqlProvider {
 
     /**

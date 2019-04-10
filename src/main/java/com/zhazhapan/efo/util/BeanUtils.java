@@ -10,10 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.InvocationTargetException;
 
-/**
- * @author pantao
- * @since 2018/1/18
- */
+
 public class BeanUtils {
 
     private static final String ERROR_JSON = "{\"error\":\"internal error, please try again later\"}";

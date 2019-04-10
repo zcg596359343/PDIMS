@@ -2,10 +2,7 @@ package com.zhazhapan.efo.service;
 
 import org.springframework.web.multipart.MultipartFile;
 
-/**
- * @author pantao
- * @since 2018/1/23
- */
+
 public interface ICommonService {
 
     /**

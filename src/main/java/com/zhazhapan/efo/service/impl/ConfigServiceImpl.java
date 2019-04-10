@@ -6,10 +6,7 @@ import com.zhazhapan.efo.modules.constant.ConfigConsts;
 import com.zhazhapan.efo.service.IConfigService;
 import org.springframework.stereotype.Service;
 
-/**
- * @author pantao
- * @since 2018/1/22
- */
+
 @Service
 public class ConfigServiceImpl implements IConfigService {
 

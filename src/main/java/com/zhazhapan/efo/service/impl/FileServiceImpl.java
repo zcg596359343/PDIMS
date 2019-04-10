@@ -36,10 +36,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.regex.Pattern;
 
-/**
- * @author pantao
- * @since 2018/1/29
- */
+
+
 @Service
 public class FileServiceImpl implements IFileService {
 

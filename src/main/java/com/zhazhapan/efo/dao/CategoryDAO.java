@@ -6,10 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * @author pantao
- * @since 2018/1/18
- */
 @Repository
 public interface CategoryDAO {
 

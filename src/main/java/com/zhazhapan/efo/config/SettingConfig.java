@@ -14,10 +14,6 @@ import java.util.Date;
 
 import static com.zhazhapan.efo.EfoApplication.settings;
 
-/**
- * @author pantao
- * @since 2018/1/26
- */
 public class SettingConfig {
 
     private static final String WINDOWS = "windows";

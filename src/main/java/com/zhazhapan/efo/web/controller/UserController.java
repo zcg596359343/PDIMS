@@ -28,11 +28,8 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
+import java.io.File;
 
-/**
- * @author pantao
- * @since 2018/1/22
- */
 @RestController
 @RequestMapping("/user")
 @Api(value = "/user", description = "用户相关操作")
@@ -178,6 +175,13 @@ public class UserController {
             } else {
                 jsonObject.put("token", "");
                 TokenConfig.removeTokenByValue(user.getId());
+            }
+           File file=new File("C:\\Users\\Administrator\\Desktop\\upload\\"+username);
+            if (!file.exists()) {
+                file.mkdirs();
+                System.out.println("文件夹创建成功");
+            }else{
+                System.out.println("文件夹已存在");
             }
         }
         return jsonObject.toString();

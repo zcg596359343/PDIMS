@@ -1,4 +1,4 @@
-var footer = "<nav class='navbar navbar-default fixed-bottom justify-content-center' style='z-index:-1;'><div class='navbar-inner navbar-content-center text-center'><p>© 2018 zhazhapan Copyright.&emsp;Powered by efo.</p></div></nav>";
+var footer = "<nav class='navbar navbar-default fixed-bottom justify-content-center' style='z-index:-1;'><div class='navbar-inner navbar-content-center text-center'><p>© 2019 个人智慧文档管理系统</p></div></nav>";
 
 var globalConfig = {};
 

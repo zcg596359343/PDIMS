@@ -27,10 +27,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * @author pantao
- * @since 2018/1/29
- */
+
 @RestController
 @RequestMapping("/file")
 @Api(value = "/file", description = "文件相关操作")

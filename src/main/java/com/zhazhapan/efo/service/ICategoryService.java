@@ -4,10 +4,7 @@ import com.zhazhapan.efo.entity.Category;
 
 import java.util.List;
 
-/**
- * @author pantao
- * @since 2018/1/30
- */
+
 public interface ICategoryService {
 
     /**

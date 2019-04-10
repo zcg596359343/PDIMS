@@ -15,10 +15,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Hashtable;
 
-/**
- * @author pantao
- * @since 2018/1/26
- */
+
 public class TokenConfig {
 
     private static Logger logger = LoggerFactory.getLogger(TokenConfig.class);

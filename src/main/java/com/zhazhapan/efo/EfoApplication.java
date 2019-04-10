@@ -17,9 +17,7 @@ import java.io.IOException;
 import java.util.Hashtable;
 import java.util.List;
 
-/**
- * @author pantao
- */
+
 @SpringBootApplication
 @EnableSwagger2Doc
 @MapperScan("com.zhazhapan.efo.dao")

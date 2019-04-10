@@ -4,12 +4,7 @@ import com.zhazhapan.efo.util.BeanUtils;
 
 import java.sql.Timestamp;
 
-/**
- * 下载记录表
- *
- * @author pantao
- * @since 2018/1/11
- */
+
 public class Download {
 
     private long id;

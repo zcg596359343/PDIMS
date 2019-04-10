@@ -7,10 +7,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * @author pantao
- * @since 2018/1/29
- */
+
 public interface IFileManagerService {
 
 

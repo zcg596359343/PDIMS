@@ -10,10 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import springfox.documentation.annotations.ApiIgnore;
 
-/**
- * @author pantao
- * @since 2018/1/25
- */
+
 @Controller
 @Api(description = "视图页面映射")
 public class ViewController {
