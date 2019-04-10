@@ -2,10 +2,7 @@ package com.zhazhapan.efo.modules.constant;
 
 import com.zhazhapan.modules.constant.ValueConsts;
 
-/**
- * @author pantao
- * @since 2018/1/19
- */
+
 public class DefaultValues {
 
     /**

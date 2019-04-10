@@ -5,10 +5,7 @@ import com.zhazhapan.efo.entity.User;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-/**
- * @author pantao
- * @since 2018/1/22
- */
+
 public interface IUserService {
 
     /**

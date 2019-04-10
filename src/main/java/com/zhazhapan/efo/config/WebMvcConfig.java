@@ -11,10 +11,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import java.util.List;
 
-/**
- * @author pantao
- * @since 2018/1/22
- */
+
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 

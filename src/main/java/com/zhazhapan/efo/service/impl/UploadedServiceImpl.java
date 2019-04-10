@@ -9,10 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * @author pantao
- * @since 2018/2/28
- */
+
 @Service
 public class UploadedServiceImpl implements IUploadedService {
 

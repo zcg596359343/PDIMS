@@ -23,10 +23,7 @@ import java.util.regex.Pattern;
 
 import static com.zhazhapan.efo.EfoApplication.settings;
 
-/**
- * @author pantao
- * @since 2018/1/22
- */
+
 @Service
 public class UserServiceImpl implements IUserService {
 

@@ -4,10 +4,7 @@ import com.zhazhapan.efo.model.DownloadRecord;
 
 import java.util.List;
 
-/**
- * @author pantao
- * @since 2018/2/1
- */
+
 public interface IDownloadedService {
 
     /**

@@ -3,10 +3,6 @@ package com.zhazhapan.efo.util;
 import com.zhazhapan.efo.modules.constant.DefaultValues;
 import com.zhazhapan.modules.constant.ValueConsts;
 
-/**
- * @author pantao
- * @since 2018/1/29
- */
 public class CommonUtils {
 
     private CommonUtils() {}

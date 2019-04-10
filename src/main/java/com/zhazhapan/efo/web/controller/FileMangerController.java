@@ -20,12 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Map;
 
-/**
- * <a href="https://github.com/joni2back/angular-filemanager/blob/master/API.md">see api doc</a>
- *
- * @author pantao
- * @since 2018/1/29
- */
+
 @ApiIgnore
 @RestController
 @RequestMapping("/filemanager")
@@ -66,6 +61,7 @@ public class FileMangerController {
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     public String upload(String destination, MultipartHttpServletRequest request) {
         Map<String, MultipartFile> fileMap = request.getFileMap();
+
         MultipartFile[] files = ArrayUtils.mapToArray(fileMap, MultipartFile.class);
         jsonObject.put("result", fileManagerService.upload(destination, files));
         return jsonObject.toJSONString();

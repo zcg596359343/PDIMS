@@ -21,10 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-/**
- * @author pantao
- * @since 2018/1/22
- */
+
 @RestController
 @RequestMapping("/config")
 @Api(value = "/config", description = "配置文件的相关操作")

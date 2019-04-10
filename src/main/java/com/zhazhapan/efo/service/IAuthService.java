@@ -5,10 +5,7 @@ import com.zhazhapan.efo.model.AuthRecord;
 
 import java.util.List;
 
-/**
- * @author pantao
- * @since 2018/2/1
- */
+
 public interface IAuthService {
 
     /**

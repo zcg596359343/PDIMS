@@ -4,12 +4,7 @@ import com.zhazhapan.efo.util.BeanUtils;
 
 import java.sql.Timestamp;
 
-/**
- * 用户表
- *
- * @author pantao
- * @since 2018/1/11
- */
+
 public class User {
 
     private int id;

@@ -4,12 +4,7 @@ import com.zhazhapan.efo.util.BeanUtils;
 
 import java.sql.Timestamp;
 
-/**
- * 分类表
- *
- * @author pantao
- * @since 2018/1/11
- */
+
 public class Category {
 
     private int id;

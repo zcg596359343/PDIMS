@@ -13,10 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * @author pantao
- * @since 2018/2/28
- */
+
 @RestController
 @RequestMapping(value = "/uploaded")
 @Api(value = "/uploaded", description = "上传记录相关操作")

@@ -4,10 +4,6 @@ import com.zhazhapan.efo.util.BeanUtils;
 
 import java.sql.Timestamp;
 
-/**
- * @author pantao
- * @since 2018/1/19
- */
 public class AuthRecord {
 
     private long id;

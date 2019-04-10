@@ -18,10 +18,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * @author pantao
- * @since 2018/1/25
- */
 public class WebInterceptor implements HandlerInterceptor {
 
     @Autowired

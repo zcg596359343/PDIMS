@@ -8,10 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * @author pantao
- * @since 2018/1/19
- */
+
 @Repository
 public interface AuthDAO {
 

@@ -22,10 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * @author pantao
- * @since 2018/1/23
- */
+
 @RestController
 @RequestMapping("/common")
 @Api(value = "/common", description = "公共接口")

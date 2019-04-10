@@ -1,9 +1,6 @@
 package com.zhazhapan.efo.model;
 
-/**
- * @author pantao
- * @since 2018/3/6
- */
+
 public class BaseAuthRecord {
 
     private int isDownloadable;

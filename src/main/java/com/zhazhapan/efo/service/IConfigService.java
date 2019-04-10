@@ -1,9 +1,6 @@
 package com.zhazhapan.efo.service;
 
-/**
- * @author pantao
- * @since 2018/1/22
- */
+
 public interface IConfigService {
 
     /**

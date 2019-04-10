@@ -13,10 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * @author pantao
- * @since 2018/2/9
- */
+
 @RestController
 @RequestMapping(value = "/downloaded")
 @Api(value = "/downloaded", description = "下载记录相关操作")

@@ -2,10 +2,6 @@ package com.zhazhapan.efo.model;
 
 import java.sql.Timestamp;
 
-/**
- * @author pantao
- * @since 2018/2/28
- */
 public class UploadedRecord {
 
     private long id;
