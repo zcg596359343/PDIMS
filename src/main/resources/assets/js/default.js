@@ -27,7 +27,7 @@ function sendVerifyCode(email, eventSrc) {
         $.post("/common/" + email + "/code", function (data) {
             layer.closeAll();
             var json = JSON.parse(data);
-            if (json.status === "success") {
+            if (json.status == "success") {
                 layer.msg("发送成功，请前往邮箱查看");
                 $(eventSrc).attr("disabled", "disabled");
                 $(eventSrc).addClass("disabled");
