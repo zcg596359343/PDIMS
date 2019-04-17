@@ -132,9 +132,9 @@ public interface FileDAO {
      * @return 是否添加成功
      */
     @Insert("insert into file(name,suffix,local_url,visit_url,size,description,tag,user_id,category_id," +
-            "is_downloadable,is_uploadable,is_deletable,is_updatable,is_visible) values(#{name},#{suffix}," +
+            "is_downloadable,is_uploadable,is_deletable,is_updatable,is_visible,main) values(#{name},#{suffix}," +
             "#{localUrl},#{visitUrl},#{size},#{description},#{tag},#{userId},#{categoryId},#{isDownloadable}," +
-            "#{isUploadable},#{isDeletable},#{isUpdatable},#{isVisible})")
+            "#{isUploadable},#{isDeletable},#{isUpdatable},#{isVisible},#{main})")
     boolean insertFile(File file);
 
     /**

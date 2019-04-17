@@ -43,10 +43,20 @@ public class File {
 
     private int isVisible;
 
+    private String main;
+
+    public String getMain() {
+        return main;
+    }
+
+    public void setMain(String main) {
+        this.main = main;
+    }
+
     private Timestamp lastModifyTime;
 
     public File(String name, String suffix, String localUrl, String visitUrl, String description, String tag, int
-            userId, int categoryId) {
+            userId, int categoryId,String main) {
         this.name = name;
         this.suffix = suffix;
         this.categoryId = categoryId;
@@ -55,13 +65,14 @@ public class File {
         this.visitUrl = visitUrl;
         this.tag = tag;
         this.userId = userId;
+        this.main=main;
         this.size = new java.io.File(localUrl).length();
     }
 
     public File(long id, String name, String suffix, String localUrl, String visitUrl, long size, Timestamp
             createTime, String description, int checkTimes, int downloadTimes, String tag, int userId, int
             categoryId, int isDownloadable, int isUploadable, int isVisible, int isDeletable, int isUpdatable,
-                Timestamp lastModifyTime) {
+                Timestamp lastModifyTime,String main) {
         this.id = id;
         this.name = name;
         this.suffix = suffix;
@@ -81,6 +92,7 @@ public class File {
         this.isDownloadable = isDownloadable;
         this.isVisible = isVisible;
         this.lastModifyTime = lastModifyTime;
+        this.main=main;
     }
 
     public void setAuth(int isDownloadable, int isUploadable, int isDeletable, int isUpdatable, int isVisible) {
