@@ -51,9 +51,10 @@ public class FileSqlProvider {
 
     private String getSqlEnds(int offset, String orderBy, String search) {
         int size = EfoApplication.settings.getIntegerUseEval(ConfigConsts.FILE_PAGE_SIZE_OF_SETTING);
-        return getSearch(search) + " order by " + (Checker.isEmpty(orderBy) ? EfoApplication.settings
+        String str=getSearch(search) + " order by " + (Checker.isEmpty(orderBy) ? EfoApplication.settings
                 .getStringUseEval(ConfigConsts.FILE_ORDER_BY_OF_SETTING) : orderBy) + " limit " + offset * size
                 + "," + size;
+        return str;
     }
 
     public String getAll(@Param("offset") int offset, @Param("categoryId") int categoryId, @Param("orderBy") String
@@ -76,7 +77,6 @@ public class FileSqlProvider {
         String re;
         re=getBaseSql(ValueConsts.TRUE) + " where d.user_id=#{userId}" + getSqlEnds(offset, ValueConsts
                 .EMPTY_STRING, search);
-        System.out.println(re);
         return re;
     }
 
@@ -86,7 +86,7 @@ public class FileSqlProvider {
         } else {
             search = "'%" + search + "%'";
             return " and (f.name like " + search + " or f.visit_url like " + search + " or f.description like " +
-                    search + " or f.tag like " + search + ")";
+                    search + " or f.tag like " + search + " or main like " + search +")";
         }
     }
 

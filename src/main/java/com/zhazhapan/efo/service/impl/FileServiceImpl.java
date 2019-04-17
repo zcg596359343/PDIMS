@@ -20,6 +20,11 @@ import com.zhazhapan.efo.util.BeanUtils;
 import com.zhazhapan.efo.util.ServiceUtils;
 import com.zhazhapan.modules.constant.ValueConsts;
 import com.zhazhapan.util.*;
+import org.apache.poi.POIXMLDocument;
+import org.apache.poi.POIXMLTextExtractor;
+import org.apache.poi.hwpf.extractor.WordExtractor;
+import org.apache.poi.openxml4j.opc.OPCPackage;
+import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +35,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.net.URLDecoder;
 import java.util.Date;
 import java.util.List;
@@ -246,6 +251,7 @@ public class FileServiceImpl implements IFileService {
             String name = multipartFile.getOriginalFilename();
             String suffix = FileExecutor.getFileSuffix(name);
             String localUrl = SettingConfig.getUploadStoragePath() + ValueConsts.SEPARATOR + name;
+
             Category category = categoryService.getById(categoryId);
             long maxSize = Formatter.sizeToLong(EfoApplication.settings.getStringUseEval(ConfigConsts
                     .FILE_MAX_SIZE_OF_SETTING));
@@ -284,10 +290,44 @@ public class FileServiceImpl implements IFileService {
                 }
                 try {
                     multipartFile.transferTo(new java.io.File(localUrl));
+
+                    String buffer = "";
+                    try {
+                        if (localUrl.endsWith(".doc")) {
+                            InputStream is = new FileInputStream(new java.io.File(localUrl));
+                            WordExtractor ex = new WordExtractor(is);
+                            buffer = ex.getText();
+                            ex.close();
+                        } else if (localUrl.endsWith("docx")) {
+                            OPCPackage opcPackage = POIXMLDocument.openPackage(localUrl);
+                            POIXMLTextExtractor extractor = new XWPFWordExtractor(opcPackage);
+                            buffer = extractor.getText();
+                            extractor.close();
+                        }else if (localUrl.endsWith("txt")){
+                            String  s="";
+                            InputStreamReader in = new InputStreamReader(new FileInputStream(localUrl),"UTF-8");
+                            BufferedReader br = new BufferedReader(in);
+                            StringBuffer content = new StringBuffer();
+                            while ((s=br.readLine())!=null){
+                                content = content.append(s);
+                            }
+                            buffer=content.toString();
+                        } else {
+                            System.out.println("此文件不是word文件！");
+                        }
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+
+
+
                     logger.info("local url of upload file: " + localUrl);
                     File file = new File(name, suffix, localUrl, visitUrl, WebUtils.scriptFilter(description),
-                            WebUtils.scriptFilter(tag), user.getId(), categoryId);
+                            WebUtils.scriptFilter(tag), user.getId(), categoryId,buffer);
                     int[] auth = SettingConfig.getAuth(ConfigConsts.FILE_DEFAULT_AUTH_OF_SETTING);
+
                     file.setAuth(auth[0], auth[1], auth[2], auth[3], auth[4]);
                     boolean isSuccess = fileDAO.insertFile(file);
                     if (isSuccess) {
@@ -343,7 +383,7 @@ public class FileServiceImpl implements IFileService {
                 if (f.exists() && f.isFile() && !localUrlExists(path) && !visitUrlExists(visitUrl)) {
                     File file = new File(name, suffix, path, visitUrl, ValueConsts.EMPTY_STRING,
                             ValueConsts.EMPTY_STRING, user.getId(),
-                            categoryService.getIdByName(DefaultValues.UNCATEGORIZED));
+                            categoryService.getIdByName(DefaultValues.UNCATEGORIZED),"456");
                     file.setAuth(ValueConsts.ONE_INT, ValueConsts.ZERO_INT, ValueConsts.ZERO_INT,
                             ValueConsts.ZERO_INT, ValueConsts.ONE_INT);
                     fileDAO.insertFile(file);

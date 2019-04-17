@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.io.File;
@@ -38,6 +39,7 @@ public class UserController {
     private final IUserService userService;
 
     private final HttpServletRequest request;
+
 
     private final JSONObject jsonObject;
 
@@ -177,6 +179,9 @@ public class UserController {
                 TokenConfig.removeTokenByValue(user.getId());
             }
            File file=new File("C:\\Users\\Administrator\\Desktop\\upload\\"+username);
+            HttpSession session=request.getSession();
+            session.setAttribute("username",username);
+           
             if (!file.exists()) {
                 file.mkdirs();
                 System.out.println("文件夹创建成功");
@@ -186,6 +191,7 @@ public class UserController {
         }
         return jsonObject.toString();
     }
+
 
     @ApiOperation(value = "用户注册（当不需要验证邮箱时，邮箱和验证码可空）")
     @ApiImplicitParams({@ApiImplicitParam(name = "username", value = "用户名", required = true), @ApiImplicitParam(name
