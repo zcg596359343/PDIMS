@@ -24,7 +24,7 @@ a {
 .jq-nav {
     width: 220px;
     height: 100%;
-    background: #263238;
+    background-color: #426577!important;
     transition: all .3s;
 }
 
@@ -34,7 +34,7 @@ a {
     padding-left: 20px;
     line-height: 46px;
     max-height: 46px;
-    color: #ABB1B7;
+    color: #FFFFFF!important;
     transition: all .3s;
 }
 

@@ -75,10 +75,10 @@ $(document).ready(function () {
         setCSS();
     });
     // 加载页脚
-    $("#footer").html(footer);
-    $("body").append("<button onclick='changeBackgroundImage();' class='rounded-circle btn btn-light random-image' " +
-        "style='position: fixed;width: 3rem;height: 3rem;bottom: 1rem;right: 1rem;'>" +
-        "<span class='glyphicon glyphicon-retweet'></span></button>");
+    // $("#footer").html(footer);
+    // $("body").append("<button onclick='changeBackgroundImage();' class='rounded-circle btn btn-light random-image' " +
+    //     "style='position: fixed;width: 3rem;height: 3rem;bottom: 1rem;right: 1rem;'>" +
+    //     "<span class='glyphicon glyphicon-retweet'></span></button>");
 });
 
 function changeBackgroundImage() {

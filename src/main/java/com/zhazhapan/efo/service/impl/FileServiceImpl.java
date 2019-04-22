@@ -313,7 +313,7 @@ public class FileServiceImpl implements IFileService {
                             }
                             buffer=content.toString();
                         } else {
-                            System.out.println("此文件不是word文！");
+                            System.out.println("此文件不是word文件！");
                         }
 
                     } catch (Exception e) {
