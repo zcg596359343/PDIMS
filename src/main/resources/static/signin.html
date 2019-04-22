@@ -14,15 +14,23 @@
     <script src="/assets/js/vue.js"></script>
     <link rel="stylesheet" href="/assets/css/style.css"/>
     <title>登录</title>
+    <style type="text/css">
+        .bg{
+            background: url("../assets/img/bg.jpg");
+            background-size: cover;
+        }
+    </style>
+
+
 </head>
-<body id="particles-js">
+<body id="particles-js" class="bg">
 <div class="container">
     <div class="row">
         <div class="col-1 col-sm-4"></div>
-        <div id="signin-div" class="col-sm-4 col-10 rounded content-box text-center center-vertical"
-             style="padding: 2rem 3rem;">
+        <div id="signin-div"  class="col-sm-4 col-10 rounded content-box text-center center-vertical"
+             style="padding: 2rem 3rem;opacity: 0.85">
             <div id="login-div">
-                <h3>欢迎回来</h3><br/>
+                <h3>个人智能文档管理系统</h3><br/>
                 <input type="text" id="loginName" class="form-control" placeholder="用户名/电子邮箱" maxlength="50"/>
                 <br/>
                 <input type="password" id="password" maxlength="50" class="form-control" placeholder="登录密码"/>

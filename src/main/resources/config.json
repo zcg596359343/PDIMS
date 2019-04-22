@@ -59,11 +59,7 @@
             ],
             "random": true,
             "listGenerator": {
-                "enable": true,
-                "prefix": "https://fakedog.xyz/image/background/anime/bg_",
-                "suffix": ".jpg",
-                "start": 1,
-                "end": 158
+                "enable": true
             }
         }
     },

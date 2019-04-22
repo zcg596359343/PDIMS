@@ -14,7 +14,7 @@ public class Test {
 
 		// 开通smtp等服务时，设置你的邮箱授权码
 		// 此时输入的为邮箱的授权码，而不是你的邮箱密码
-		mailInfo.setPassword("mzfwwhzijfombbeh");
+		mailInfo.setPassword("gnxthblybpifbffa");
 		mailInfo.setFromAddress("mixfuc@foxmail.com");
 		mailInfo.setToAddress(to);
 		mailInfo.setSubject("登录信息找回");
