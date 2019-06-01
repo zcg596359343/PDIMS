@@ -12,7 +12,7 @@ html, body {
 }
 
 .content-box {
-    background: #f8f8f8 !important;
+    border: 1px solid #f0f0f0;
     z-index: 1;
 }
 
