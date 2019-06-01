@@ -19,7 +19,7 @@ public class FileSqlProvider {
     /**
      * 生成一条文件基本信息的查询语句
      *
-     * @param userId 用户编号
+     * @param userId 用户编
      * @param fileId 文件编号
      *
      * @return SQL语句
