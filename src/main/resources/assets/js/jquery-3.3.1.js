@@ -9346,7 +9346,7 @@
                 success: callback,
                 error: function () {
                     layer.closeAll();
-                    alerts("无法连接到服务器，请联系管理员");
+                    alerts("操作失败");
                 }
             }, jQuery.isPlainObject(url) && url));
         };

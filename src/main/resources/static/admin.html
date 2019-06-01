@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="/assets/css/style.css"/>
     <title>管理员</title>
 </head>
+
 <body id="particles-js" style="overflow-x: hidden;">
 <div class="jq-nav float-left float-sm-left" style="height: 100%;min-height: 100vh;position: fixed;">
     <div class="jq-nav-top">
@@ -35,9 +36,7 @@
         <li class="jq-nav-item">
             <a href="#file-manager"><span class="glyphicon glyphicon-file">&nbsp;<b>文件管理</b></span></a>
         </li>
-        <li class="jq-nav-item">
-            <a href="#auth-manager"><span class="glyphicon glyphicon-lock">&nbsp;<b>权限管理</b></span></a>
-        </li>
+
         <li class="jq-nav-item">
             <a href="#category-manager"><span class="glyphicon glyphicon-filter">&nbsp;<b>分类管理</b></span></a>
         </li>
@@ -64,7 +63,7 @@
                     <th>编号</th>
                     <th>用户名</th>
                     <th>邮箱</th>
-
+                    <th>文件名</th>
                     <th>分类名</th>
                     <th>上传时间</th>
                 </tr>
@@ -74,7 +73,7 @@
                     <td>{{key+1}}</td>
                     <td>{{upload.username}}</td>
                     <td>{{upload.email}}</td>
-
+                    <td>{{upload.fileName}}</td>
                     <td>{{upload.categoryName}}</td>
 
                     <td>{{new Date(upload.createTime).format('yyyy-MM-dd hh:mm:ss')}}</td>
@@ -134,18 +133,16 @@
         <div class="col-12 col-sm-10 offset-sm-1 content-box rounded">
             <br/>
             <div class="text-right">
-                <button class="btn btn-primary" onclick="showFileShareModal();"><i
-                        class="glyphicon glyphicon-share"></i> 共享
-                </button>
+
                 <button class="btn btn-success to-upload-button"><i
                         class="glyphicon glyphicon-cloud-upload"></i> 上传
                 </button>
-                <button class="btn btn-warning" onclick="showFileModal('#file-manager-table','#fileModifiedModal');"><i
-                        class="glyphicon glyphicon-wrench"></i> 修改
+
                 </button>
                 <button class="btn btn-dark" onclick="showFileModal('#file-manager-table','#fileAuthModal');"><i
                         class="glyphicon glyphicon-eye-close"></i> 权限
                 </button>
+
                 <button class="btn btn-danger file-delete"><i class="glyphicon glyphicon-trash"></i> 删除</button>
             </div>
             <br/>
@@ -164,9 +161,9 @@
                     <th>编号</th>
                     <th>文件编号</th>
                     <th>用户名</th>
-
+                    <th>本地路径</th>
                     <th>分类</th>
-
+                    <th>链接</th>
                     <th>下载次数</th>
                     <th>上传时间</th>
                 </tr>
@@ -184,9 +181,11 @@
                     <td class="file-index" v-bind:data-key="key">{{key+1}}</td>
                     <td>{{file.id}}</td>
                     <td>{{file.username}}</td>
-
+                    <td><a href="javascript:" onclick="alerts($(event.srcElement).attr('data-title'));"
+                           v-bind:title="file.localUrl" data-toggle="tooltip"
+                           v-bind:data-title="file.localUrl">查看</a></td>
                     <td>{{file.categoryName}}</td>
-
+                    <td><a v-bind:href="file.visitUrl" target="_blank">访问</a></td>
                     <td>{{file.downloadTimes}}</td>
                     <td>{{new Date(file.createTime).format('yyyy-MM-dd hh:mm:ss')}}</td>
                 </tr>
@@ -198,7 +197,7 @@
                 class="glyphicon glyphicon-arrow-down"></i> 获取更多</b></button>
         <br/>
     </div>
-    <!--权限管理-->
+   <!-- &lt;!&ndash;权限管理&ndash;&gt;
     <div class="row jq-tab hide" id="auth-manager">
         <div class="col-12 col-sm-10 offset-sm-1 content-box rounded">
             <br/>
@@ -218,9 +217,7 @@
         <div class="col-12 col-sm-10 offset-sm-1 content-box rounded">
             <br/>
             <div class="text-right">
-                <button class="btn btn-primary" data-toggle="modal" data-target="#authAddedModal"
-                        onclick="authFileSearch='';"><i class="glyphicon glyphicon-flash"></i> 新增
-                </button>
+
                 <button class="btn btn-success" onclick="showFileModal('#auth-manager-table','#authEditModal');"><i
                         class="glyphicon glyphicon-edit"></i> 编辑
                 </button>
@@ -277,7 +274,7 @@
         <button class="btn btn-lg btn-link btn-block" onclick="offset+=1;getAuth();"><b><i
                 class="glyphicon glyphicon-arrow-down"></i> 获取更多</b></button>
         <br/>
-    </div>
+    </div>-->
     <!--分类管理-->
     <div class="row jq-tab hide" id="category-manager">
         <div class="col-sm-3 col-12 offset-sm-1 padding-0">
@@ -337,10 +334,10 @@
             <br/>
             <div class="text-right">
                 <button class="btn btn-info" onclick="showFileModal('#user-manager-table','#userFileAuthModal')"><i
-                        class="glyphicon glyphicon-edit"></i> 编辑用户默认文件权限
+                        class="glyphicon glyphicon-edit"></i> 编辑用户操作文件权限
                 </button>
                 <button class="btn btn-warning" onclick="showFileModal('#user-manager-table','#userAuthModal')"><i
-                        class="glyphicon glyphicon-wrench"></i> 修改用户权限
+                        class="glyphicon glyphicon-wrench"></i> 修改用户角色
                 </button>
                 <button class="btn btn-danger" onclick="showFileModal('#user-manager-table','#userPasswordModal');"><i
                         class="glyphicon glyphicon-warning-sign"></i> 重置用户密码
@@ -427,7 +424,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title pull-left" id="userAuthModalLabel">重置用户密码</h4>
+                <h4 class="modal-title pull-left" id="userAuthModalLabel">修改用户角色</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
